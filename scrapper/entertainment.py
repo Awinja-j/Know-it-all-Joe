@@ -2,7 +2,7 @@
 https://www.hollywoodreporter.com/
 http://www.tmz.com/
 '''
-from scrapper import ping_url, loop_through
+from .basescrapper import ping_url
 
 def TMZ_Scrapper():
     one_post = []
@@ -14,7 +14,7 @@ def TMZ_Scrapper():
         excerpt = post.find('div', class_='article-content')
         excerpt = excerpt.p.text
         one_post.append({title, excerpt})
-        return one_post
+    return one_post
 
 def HollywoodReporter_Scrapper():
     one_post = []
@@ -26,4 +26,4 @@ def HollywoodReporter_Scrapper():
         excerpt = post.find('p', class_='homepage-item__deck')
         excerpt = excerpt.p.text
         one_post.append({title, excerpt})
-        return one_post
+    return one_post
